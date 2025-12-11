@@ -157,6 +157,41 @@ app.get('/tags/:namespace/*', async (req, res) => {
     }
 });
 
+// /api/tags 路由（与 /tags 功能相同，用于 serv00 兼容）
+app.get('/api/tags/:namespace/*', async (req, res) => {
+    let namespace = req.params.namespace;
+    let name = req.params[0];
+    const { page = '1', page_size = '100' } = req.query;
+
+    if (name && name.includes('/')) {
+        const parts = name.split('/');
+        if (namespace === 'library' && parts.length >= 2) {
+            namespace = parts[0];
+            name = parts.slice(1).join('/');
+        }
+    }
+
+    if (name && name.includes('/')) {
+        const parts = name.split('/');
+        namespace = parts[0];
+        name = parts.slice(1).join('/');
+    }
+
+    console.log(`API Tags: namespace=${namespace}, name=${name}`);
+
+    try {
+        const results = await getRepositoryTags(
+            namespace,
+            name,
+            parseInt(page, 10),
+            parseInt(page_size, 10)
+        );
+        res.json(results);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // GitHub 代理路由（NoRoute 处理器 - 最后）
 app.use(githubProxyHandler);
 

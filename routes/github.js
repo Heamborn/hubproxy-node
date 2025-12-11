@@ -106,8 +106,15 @@ async function proxyGitHubRequest(req, res, url, redirectCount = 0) {
             redirect: 'manual', // 手动处理重定向
         });
 
-        // 检查内容类型
-        if (req.method === 'GET') {
+        // 处理重定向（在检查内容类型之前处理重定向）
+        const location = response.headers.get('location');
+        if (location && response.status >= 300 && response.status < 400) {
+            // 继续代理重定向目标
+            return proxyGitHubRequest(req, res, location, redirectCount + 1);
+        }
+
+        // 检查内容类型（只在最终响应时检查，不在重定向响应时检查）
+        if (req.method === 'GET' && response.status >= 200 && response.status < 300) {
             const contentType = response.headers.get('content-type') || '';
             const baseType = contentType.split(';')[0].toLowerCase();
             if (blockedContentTypes.has(baseType)) {
@@ -128,17 +135,6 @@ async function proxyGitHubRequest(req, res, url, redirectCount = 0) {
                     `文件过大，限制大小: ${Math.floor(config.server.fileSize / (1024 * 1024))} MB`
                 );
             }
-        }
-
-        // 处理重定向
-        const location = response.headers.get('location');
-        if (location && response.status >= 300 && response.status < 400) {
-            if (checkGitHubURL(location)) {
-                // 内部重定向，继续代理
-                return proxyGitHubRequest(req, res, location, redirectCount + 1);
-            }
-            // 外部重定向，也继续代理
-            return proxyGitHubRequest(req, res, location, redirectCount + 1);
         }
 
         // 获取真实域名用于处理脚本

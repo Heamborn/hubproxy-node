@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -482,6 +483,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -492,7 +494,7 @@
             .hero-title {
                 font-size: 2rem;
             }
-            
+
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -509,11 +511,11 @@
                 transform: translateY(-100vh);
                 transition: transform 0.3s ease;
             }
-            
+
             .nav-links.active {
                 transform: translateY(0);
             }
-            
+
             .mobile-menu-toggle {
                 display: block !important;
                 background: none;
@@ -525,44 +527,44 @@
                 border-radius: var(--radius);
                 transition: background-color 0.2s;
             }
-            
+
             .mobile-menu-toggle:hover {
                 background-color: var(--muted);
             }
-            
+
             .navbar-container {
                 justify-content: space-between !important;
             }
-            
+
             .container {
                 padding: 0 1rem;
             }
-            
+
             .modal-content {
                 padding: 1.5rem;
             }
-            
+
             .input-container {
                 flex-direction: column;
                 gap: 1rem;
             }
-            
+
             .input {
                 font-size: 16px;
             }
-            
+
             .button {
                 width: 100%;
                 justify-content: center;
                 padding: 0.875rem 1.5rem;
             }
-            
+
             .output-actions {
                 flex-direction: column;
                 gap: 0.75rem;
             }
         }
-        
+
         .mobile-menu-toggle {
             display: none;
         }
@@ -578,16 +580,17 @@
                 </div>
                 加速服务
             </a>
-            
+
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 ☰
             </button>
-            
+
             <div class="nav-links" id="navLinks">
                 <a href="/" class="nav-link active">🚀 GitHub加速</a>
                 <a href="/search.html" class="nav-link">🔍 镜像搜索</a>
-                <a href="https://gitee.com/if-the-wind/github-hosts/raw/main/hosts" target="_blank" class="nav-link">📄 Hosts</a>
-                
+                <a href="https://gitee.com/if-the-wind/github-hosts/raw/main/hosts" target="_blank" class="nav-link">📄
+                    Hosts</a>
+
                 <button class="theme-toggle" id="themeToggle">
                     🌙
                 </button>
@@ -616,12 +619,8 @@
 
                 <div class="form-group">
                     <div class="input-container">
-                        <input 
-                            type="text" 
-                            class="input" 
-                            id="githubLinkInput" 
-                            placeholder="请输入GitHub文件链接，例如：https://github.com/user/repo/releases/download/..."
-                        >
+                        <input type="text" class="input" id="githubLinkInput"
+                            placeholder="请输入GitHub文件链接，例如：https://github.com/user/repo/releases/download/...">
                         <button class="button button-primary" id="formatButton">
                             获取加速链接
                         </button>
@@ -654,7 +653,7 @@
                         支持多种镜像仓库，在镜像名称前添加本站域名即可加速下载。
                     </p>
                 </div>
-                
+
                 <button class="docker-button" id="dockerButton">
                     查看 Docker 镜像加速使用说明
                 </button>
@@ -669,7 +668,7 @@
                 <h2 class="modal-title">Docker 镜像加速</h2>
                 <p>支持多种镜像仓库，在镜像名称前添加本站域名即可加速下载。</p>
             </div>
-            
+
             <div class="domain-examples">
                 <strong>Docker 官方镜像：</strong>
                 docker pull <span class="domain-base"></span>/nginx
@@ -694,26 +693,27 @@
     </div>
 
     <footer class="footer">
-        <a href="https://github.com/sky22333/hubproxy" target="_blank" class="github-link">
+        <a href="https://github.com/Heamborn/hubproxy-node" target="_blank" class="github-link">
             <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                <path
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
             </svg>
             GitHub
         </a>
     </footer>
 
     <script>
-                 const themeToggle = document.getElementById('themeToggle');
+        const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
-                 
-         const savedTheme = localStorage.getItem('theme');
+
+        const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+
         if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
             html.classList.add('dark');
             themeToggle.textContent = '☀️';
         }
-        
+
         themeToggle.addEventListener('click', () => {
             html.classList.toggle('dark');
             const isDark = html.classList.contains('dark');
@@ -721,13 +721,13 @@
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
 
-                 document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const fullDomain = window.location.host;
             document.querySelectorAll('.domain-base').forEach(span => {
                 span.textContent = fullDomain;
             });
 
-                         const modal = document.getElementById('dockerModal');
+            const modal = document.getElementById('dockerModal');
             const dockerButton = document.getElementById('dockerButton');
             const closeButton = document.getElementById('closeModal');
 
@@ -738,17 +738,17 @@
             };
         });
 
-                 function formatGithubLink() {
+        function formatGithubLink() {
             const githubLinkInput = document.getElementById('githubLinkInput');
             const currentHost = window.location.host;
             let formattedLink = "";
             const link = githubLinkInput.value.trim();
-        
+
             if (link.startsWith("https://") || link.startsWith("http://")) {
                 formattedLink = "https://" + currentHost + "/" + link;
             } else if (
-                link.startsWith("github.com/") || 
-                link.startsWith("raw.githubusercontent.com/") || 
+                link.startsWith("github.com/") ||
+                link.startsWith("raw.githubusercontent.com/") ||
                 link.startsWith("gist.githubusercontent.com/") ||
                 link.startsWith("huggingface.co/") ||
                 link.startsWith("cdn-lfs.hf.co/") ||
@@ -759,24 +759,24 @@
                 showToast('请输入有效的链接');
                 return;
             }
-        
+
             const formattedLinkOutput = document.getElementById('formattedLinkOutput');
             formattedLinkOutput.textContent = formattedLink;
-            
+
             const outputBlock = document.getElementById('outputBlock');
             outputBlock.classList.add('show');
         }
 
-                 function copyToClipboard() {
+        function copyToClipboard() {
             const output = document.getElementById('formattedLinkOutput');
             const text = output.textContent;
-            
+
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(text).then(() => {
                     showToast('链接已复制到剪贴板');
                 });
-                         } else {
-                 const range = document.createRange();
+            } else {
+                const range = document.createRange();
                 range.selectNode(output);
                 window.getSelection().removeAllRanges();
                 window.getSelection().addRange(range);
@@ -786,12 +786,12 @@
             }
         }
 
-                 function openLink() {
+        function openLink() {
             const formattedLinkOutput = document.getElementById('formattedLinkOutput');
             window.open(formattedLinkOutput.textContent);
         }
 
-                 function showToast(message) {
+        function showToast(message) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
             toast.classList.add('show');
@@ -801,11 +801,11 @@
             }, 3000);
         }
 
-                 document.getElementById('formatButton').addEventListener('click', formatGithubLink);
+        document.getElementById('formatButton').addEventListener('click', formatGithubLink);
         document.getElementById('copyButton').addEventListener('click', copyToClipboard);
         document.getElementById('redirButton').addEventListener('click', openLink);
-        
-                 document.getElementById('githubLinkInput').addEventListener('keyup', function(event) {
+
+        document.getElementById('githubLinkInput').addEventListener('keyup', function (event) {
             if (event.key === 'Enter') {
                 formatGithubLink();
             }
@@ -813,12 +813,12 @@
 
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navLinks = document.getElementById('navLinks');
-        
+
         mobileMenuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileMenuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         });
-        
+
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
