@@ -1,0 +1,20 @@
+{
+  "name": "hubproxy-node",
+  "version": "1.0.0",
+  "description": "Docker 和 GitHub 加速代理服务器 - Node.js 版本",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0",
+    "@iarna/toml": "^2.2.5"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "author": "",
+  "license": "MIT"
+}
